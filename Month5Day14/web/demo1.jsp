@@ -9,34 +9,30 @@
 <html>
 <head>
     <title>$Title$</title>
-    <!--
-      easyui.css 是easyui的总样式表
-      icon.css是图标样式表
-      jquery.min.js是jQuery支持，必须在EasyUI之前导入
-      jquery.easyui.min.js是EasyUI组件
-      easyui-lang-zh_CN.js是中文支持
-    -->
+
+
     <link rel="stylesheet" type="text/css" href="css/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="css/default/icon.css">
     <script type="text/javascript" src="js/jquery-1.11.3.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
 </head>
-<body class="easyui-layout">
-    <div data-options="region:'north',split:false" style="height:40px;background-color:#7F99BE;line-height: 38px;">
-        <span style="color: #fff;font-size: 24px;font-weight: bold;">管理系统</span>
-        <span style="float: right;">欢迎当前用户  ： 使用帮助  修改密码  退出登录</span>
-    </div>
-    <div data-options="region:'south'" style="height:30px;">
-        系统版本号
-    </div>
-    <div data-options="region:'west',title:'导航菜单',split:true" style="width:200px;">
+<body>
 
-    </div>
-    <div data-options="region:'center'" style="padding:5px;background:#eee;">
-
-    </div>
 </body>
+<div id="mm" class="easyui-menu" style="width:120px;">
+    <div>New</div>
+    <div>
+        <span>Open</span>
+        <div style="width:150px;">
+            <div><b>Word</b></div>
+            <div>Excel</div>
+            <div>PowerPoint</div>
+        </div>
+    </div>
+    <div data-options="iconCls:'icon-save'">Save</div>
+    <div class="menu-sep"></div>
+    <div>Exit</div>
+</div>
 
 
 </html>
