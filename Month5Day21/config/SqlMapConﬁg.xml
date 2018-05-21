@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<settings>
+		<!-- 如果列名是user_name的格式，此标签会自动匹配属性名为userName的格式 -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+	
+	<!-- 配置分页插件 -->
+	<plugins>
+		<!-- 引入工具 -->
+		<plugin interceptor="com.github.pagehelper.PageHelper">
+			<!-- 使用mysql数据库 -->
+			<property name="dialect" value="mysql"/>
+			<!-- 是否查询总条数 -->
+			<property name="rowBoundsWithCount" value="true"/>
+		</plugin>
+	</plugins>
+
+	
+  <!-- 环境： default的值引用什么id，就表示使用什么数据库了-->
+  <environments default="db1">
+	<!-- 配置数据库连接信息及事务 -->
+	<environment id="db1">
+		<!-- 表示使用事务：默认是自动开启事务 -->
+		<transactionManager type="JDBC" />
+		<!-- 使用连接池 -->
+		<dataSource type="POOLED">
+			<!-- 数据库连接基本信息 -->
+			<property name="driver" value="com.mysql.jdbc.Driver" />
+			<property name="url" value="jdbc:mysql://localhost:3306/books" />
+			<property name="username" value="root" />
+			<property name="password" value="" />
+		</dataSource>
+	</environment>
+	
+  </environments>
+  <mappers>
+  	<!-- 表示加载此包下的所有dao接口-->
+    <package name="com.czxy.dao"/>
+  </mappers>
+</configuration>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="mybatis-3.4.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/mapperGeneTest/mybatis-3.4.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mapperGeneTest/mybatis-generator-core-1.3.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/mapperGeneTest/mysql-connector-java-5.1.28-bin.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/mapperGeneTest/mybatis-3.4.5.jar!/" />
+    </SOURCES>
+  </library>
+</component>
