@@ -26,6 +26,17 @@ public class TblUser {
     @Column(name = "password")
     private String password;
 
+    
+    private Dept dept;
+
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(Dept dept) {
+        this.dept = dept;
+    }
+
     public TblUser() {
     }
 

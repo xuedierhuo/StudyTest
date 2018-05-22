@@ -27,6 +27,17 @@ public class TblUserController extends BaseServlet {
         datagridBean.setTotal(userInfo.getTotal());
 
         String jsonString = MyJsonUtils.getJsonString(datagridBean);
+        System.out.println(jsonString);
         getResponse().getWriter().print(jsonString);
     }
+
+    /**
+     * 查询
+     */
+//    public void search() throws IOException {
+//        String username = getRequest().getParameter("username");
+//        List<TblUser> users = userService.seach(username);
+//
+//        getResponse().getWriter().print();
+//    }
 }

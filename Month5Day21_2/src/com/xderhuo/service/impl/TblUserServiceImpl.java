@@ -20,7 +20,7 @@ public class TblUserServiceImpl implements TblUserService {
         userMapper = MyBatisUtils.getMapper(TblUserMapper.class);
 
         PageHelper.startPage(pageNum,pageSize);
-        List<TblUser> users = userMapper.selectAll();
+        List<TblUser> users = userMapper.findAll();
         PageInfo<TblUser> pageInfo = new PageInfo<>(users);
 
         MyBatisUtils.close();

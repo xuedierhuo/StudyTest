@@ -33,15 +33,130 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				$.post(url,params,function ( data ) {
 				    // data = eval(data);
 				    var rows = data.rows;
-                    for (var i = 0; i < rows.length; i++) {
-						alert(rows[i]);
-                    } 
+				    var total = Math.ceil(data.total/pageSize);
 
-                    // $(data).each(function () {
-						// alert(this);
-                    // })
+				    $("#pages").html(total);
+					$("#pageNum").val(pageNum);
+					$("#allTh").html("");
+
+					$("#nextpage").show();
+					if (total == pageNum){
+                        $("#nextpage").hide();
+					};
+                    $("#uppage").show();
+                    if (pageNum == 1){
+                        $("#uppage").hide();
+                    }
+
+                    for (var i = 0; i < rows.length; i++) {
+                        var newTr = $("<tr></tr>");
+
+                        var count = $("<td></td>").html(i+1);
+                        newTr.append(count);
+
+                        var id = $("<td></td>").html(rows[i].userId);
+                        newTr.append(id);
+
+                        var userName = $("<td></td>").html(rows[i].userName);
+                        newTr.append(userName);
+
+                        var userGender = $("<td></td>").html(rows[i].userGender);
+                        newTr.append(userGender);
+
+                        var userRegisterTime = $("<td></td>").html(rows[i].userRegisterTime.year+1900+"-"+rows[i].userRegisterTime.month+"-"+rows[i].userRegisterTime.day);
+                        newTr.append(userRegisterTime);
+
+                        var userLastLoginTime = $("<td></td>").html(rows[i].userLastLoginTime.year+1900+"-"+rows[i].userLastLoginTime.month+"-"+rows[i].userLastLoginTime.day);
+                        newTr.append(userLastLoginTime);
+
+                        var deptno = $("<td></td>").html(rows[i].dept.dname);
+                        newTr.append(deptno);
+
+
+						$("#allTh").append(newTr);
+                    }
+
+
                 },"json");
             }
+
+            $("#first").click(function () {
+                showUsers(1 , 5);
+            });
+
+            $("#end").click(function () {
+                showUsers($("#pages").html() , 5);
+            });
+
+            $("#uppage").click(function () {
+                var pageNum = parseInt($("#pageNum").val())-1;
+                showUsers(pageNum , 5);
+            });
+
+            $("#nextpage").click(function () {
+                var pageNum = parseInt($("#pageNum").val())+1;
+                showUsers(pageNum , 5);
+            });
+
+
+            
+            $("#seachSub").click(function () {
+                var url = "/UserServlet";
+                var params = {
+                    "method" : "findAll",
+                    "page" : pageNum,
+                    "rows" : pageSize
+                };
+                $.post(url,params,function ( data ) {
+                    // data = eval(data);
+                    var rows = data.rows;
+                    var total = Math.ceil(data.total/pageSize);
+
+                    $("#pages").html(total);
+                    $("#pageNum").val(pageNum);
+                    $("#allTh").html("");
+
+                    $("#nextpage").show();
+                    if (total == pageNum){
+                        $("#nextpage").hide();
+                    };
+                    $("#uppage").show();
+                    if (pageNum == 1){
+                        $("#uppage").hide();
+                    }
+
+                    for (var i = 0; i < rows.length; i++) {
+                        var newTr = $("<tr></tr>");
+
+                        var count = $("<td></td>").html(i+1);
+                        newTr.append(count);
+
+                        var id = $("<td></td>").html(rows[i].userId);
+                        newTr.append(id);
+
+                        var userName = $("<td></td>").html(rows[i].userName);
+                        newTr.append(userName);
+
+                        var userGender = $("<td></td>").html(rows[i].userGender);
+                        newTr.append(userGender);
+
+                        var userRegisterTime = $("<td></td>").html(rows[i].userRegisterTime.year+1900+"-"+rows[i].userRegisterTime.month+"-"+rows[i].userRegisterTime.day);
+                        newTr.append(userRegisterTime);
+
+                        var userLastLoginTime = $("<td></td>").html(rows[i].userLastLoginTime.year+1900+"-"+rows[i].userLastLoginTime.month+"-"+rows[i].userLastLoginTime.day);
+                        newTr.append(userLastLoginTime);
+
+                        var deptno = $("<td></td>").html(rows[i].dept.dname);
+                        newTr.append(deptno);
+
+
+                        $("#allTh").append(newTr);
+                    }
+
+
+                },"json");
+            });
+
 
             showUsers(1,5);
         });
@@ -55,7 +170,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				  <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 信息查询
 			 </div>
 			 <div class="panel-body">
-			 
+
 			 	<form action="${pageContext.request.contextPath }/UserServlet" method="post" class="form-inline">
 			        <input type="hidden" name="method" value="search">
 					<div class="form-group">
@@ -63,10 +178,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					    <input type="text" name="username" class="form-control" id="username" value="" placeholder="用户名">
 					</div>
 					
-					<button type="submit" class="btn btn-default"> 查询 </button>        
+					<button type="button" class="btn btn-default" id="seachSub"> 查询 </button>
 		        </form><hr>
 			 
-			      <table class="table table-striped table-bordered table-hover table-condensed">
+			      <table class="table table-striped table-bordered table-hover table-condensed" >
 		            <tr>
 		            	<th>行序号</th>
 		            	<th>用户编号</th>
@@ -77,37 +192,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		            	<th>所属部门</th>
 		            	<th>操作</th>
 		            </tr>
-					<c:forEach items="${users}" var="user" varStatus="ind">
-						<tr id="userstr">
-							<th>${ind.count}</th>
-							<th>${user.userId}</th>
-							<th>${user.userName}</th>
-							<th>${user.userGender}</th>
-							<th>${user.userRegisterTime}</th>
-							<th>${user.userLastLoginTime}</th>
-							<th>${user.password}</th>
-							<th></th>
-						</tr>
-					</c:forEach>
+					<tbody id="allTh">
+						<%--<c:forEach items="${users}" var="user" varStatus="ind">--%>
+							<%--<tr id="userstr">--%>
+								<%--<th>${ind.count}</th>--%>
+								<%--<th>${user.userId}</th>--%>
+								<%--<th>${user.userName}</th>--%>
+								<%--<th>${user.userGender}</th>--%>
+								<%--<th>${user.userRegisterTime}</th>--%>
+								<%--<th>${user.userLastLoginTime}</th>--%>
+								<%--<th>${user.password}</th>--%>
+								<%--<th></th>--%>
+							<%--</tr>--%>
+						<%--</c:forEach>--%>
+					</tbody>
+
 		        </table>
 		        <div class="pager">
 		        <ul>
 		            <li>
-		            	<a href="javascript:void(0)" onclick="">首页</a>
+		            	<a href="javascript:void(0)" onclick="" id="first">首页</a>
 		            </li>
 		            <li>
-		            	<a href="javascript:void(0)" onclick="">上一页</a>
+		            	<a href="javascript:void(0)" onclick="" id="uppage">上一页</a>
 		            </li>
 		            <li>
-		            	<a href="javascript:void(0)" onclick="">下一页</a>
+		            	<a href="javascript:void(0)" onclick="" id="nextpage">下一页</a>
 		            </li>
 		            <li>
-		            	<a href="javascript:void(0)" onclick="">尾页</a>
+		            	<a href="javascript:void(0)" onclick="" id="end">尾页</a>
 		            </li>
 		            <li>
-		            	第<input name="pageNum" type="text" value="x" style="width: 40px;" >页
+		            	第<input name="pageNum" id="pageNum" type="text" value="" style="width: 40px;" >页
 		            	/
-						共  <span id="pages" >y</span> 页
+						共  <span id="pages" ></span> 页
 		            </li>
 		        </ul>
 		        </div>
