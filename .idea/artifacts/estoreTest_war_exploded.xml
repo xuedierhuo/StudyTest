@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="estoreTest:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/estoreTest_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="estoreTest/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="estoreTest" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
