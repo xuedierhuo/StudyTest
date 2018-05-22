@@ -10,5 +10,6 @@
     <orderEntry type="library" name="mybatis-3.4.5" level="project" />
     <orderEntry type="library" name="mapper-3.5.2" level="project" />
     <orderEntry type="library" name="mapper-3.5.2 (2)" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.52" level="application_server_libraries" />
   </component>
 </module>

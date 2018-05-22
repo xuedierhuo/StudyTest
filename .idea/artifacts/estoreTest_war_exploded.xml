@@ -2,12 +2,16 @@
   <artifact type="exploded-war" name="estoreTest:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/estoreTest_war_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="estoreTest/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="estoreTest" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="activation (5)" />
+          <element id="library" level="project" name="commons-io-2.6" />
+        </element>
       </element>
+      <element id="javaee-facet-resources" facet="estoreTest/web/Web" />
     </root>
   </artifact>
 </component>
