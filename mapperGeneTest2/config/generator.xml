@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--数据库驱动-->
+    <classPathEntry    location="lib/mysql-connector-java-5.1.28-bin.jar"/>
+    <context id="DB2Tables"    targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!--数据库链接地址账号密码-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/month5day24?characterEncoding=utf8" userId="root" password="">
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!--生成Model类存放位置-->
+        <javaModelGenerator targetPackage="com.xderhuo.domain" targetProject="src">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--生成映射文件存放位置-->
+        <sqlMapGenerator targetPackage="com.xderhuo.mapper" targetProject="src">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!--生成Dao类存放位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xderhuo.mapper" targetProject="src">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!--生成对应表及类名-->
+        <table tableName="school" domainObjectName="Messgae" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="student" domainObjectName="Messgae" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="grade" domainObjectName="Messgae" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+
+        <!--<table tableName="school"/>-->
+        <!--<table tableName="student"/>-->
+        <!--<table tableName="grade" />-->
+
+    </context>
+</generatorConfiguration>
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE generatorConfiguration-->
+        <!--PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"-->
+        <!--"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">-->
+
+<!--<generatorConfiguration>-->
+    <!--<classPathEntry location="lib/mysql-connector-java-5.1.28-bin.jar" />-->
+
+    <!--<context id="mysql" defaultModelType="hierarchical" targetRuntime="MyBatis3Simple" >-->
+        <!--<jdbcConnection-->
+                <!--driverClass="com.mysql.jdbc.Driver"-->
+                <!--connectionURL="jdbc:mysql://localhost:3306/month5day24?characterEncoding=utf8"-->
+                <!--userId="root"-->
+                <!--password="">-->
+        <!--</jdbcConnection>-->
+
+        <!--<javaModelGenerator targetPackage="src/xderhuo/domain" targetProject="domain">-->
+            <!--<property name="enableSubPackages" value="true" />-->
+            <!--<property name="trimStrings" value="true" />-->
+        <!--</javaModelGenerator>-->
+
+        <!--<sqlMapGenerator targetPackage="src/xderhuo/mapper"  targetProject="mapper">-->
+            <!--<property name="enableSubPackages" value="true" />-->
+        <!--</sqlMapGenerator>-->
+
+        <!--<javaClientGenerator type="XMLMAPPER" targetPackage="src/xderhuo/mapper"  targetProject="mapper">-->
+            <!--<property name="enableSubPackages" value="true" />-->
+        <!--</javaClientGenerator>-->
+
+        <!--&lt;!&ndash;<table schema="DB2ADMIN" tableName="ALLTYPES" domainObjectName="Customer" >&ndash;&gt;-->
+            <!--&lt;!&ndash;<property name="useActualColumnNames" value="true"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;<generatedKey column="ID" sqlStatement="DB2" identity="true" />&ndash;&gt;-->
+            <!--&lt;!&ndash;<columnOverride column="DATE_FIELD" property="startDate" />&ndash;&gt;-->
+            <!--&lt;!&ndash;<ignoreColumn column="FRED" />&ndash;&gt;-->
+            <!--&lt;!&ndash;<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />&ndash;&gt;-->
+        <!--&lt;!&ndash;</table>&ndash;&gt;-->
+        <!--<table tableName="school"/>-->
+        <!--<table tableName="student"/>-->
+        <!--<table tableName="grade" />-->
+
+    <!--</context>-->
+<!--</generatorConfiguration>-->
+
+
+
+        <!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<!DOCTYPE generatorConfiguration-->
+        <!--PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"-->
+        <!--"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">-->
+<!--<generatorConfiguration>-->
+   <!--<classPathEntry location="lib/mysql-connector-java-5.1.28-bin.jar" />-->
+    <!--<context id="mysql" defaultModelType="hierarchical" targetRuntime="MyBatis3Simple" >-->
+        <!--<property name="autoDelimitKeywords" value="false"/>-->
+        <!--<property name="javaFileEncoding" value="UTF-8"/>-->
+        <!--<property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>-->
+        <!--<property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>-->
+        <!--<property name="beginningDelimiter" value="`"/>-->
+        <!--<property name="endingDelimiter" value="`"/>-->
+       <!--&lt;!&ndash; <plugin type="tk.mybatis.mapper.generator.MapperPlugin">-->
+            <!--&lt;!&ndash;自定义通用Mapper接口，将来所有生成的mapper接口都会继承这个接口&ndash;&gt;-->
+            <!--<property name="mappers"-->
+                      <!--value="com.xderhuo.mappertest.mapper" />-->
+        <!--</plugin>&ndash;&gt;-->
+        <!--<commentGenerator>-->
+            <!--<property name="suppressAllComments" value="false"/>-->
+        <!--</commentGenerator>-->
+
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/month5day24?characterEncoding=utf8" userId="root" password="">-->
+        <!--</jdbcConnection>-->
+        <!--<javaTypeResolver type="org.mybatis.generator.internal.types.JavaTypeResolverDefaultImpl">-->
+            <!--<property name="forceBigDecimals" value="false"/>-->
+        <!--</javaTypeResolver>-->
+        <!--<javaModelGenerator targetPackage="domain" targetProject="com/xderhuo">-->
+            <!--<property name="constructorBased" value="false"/>-->
+            <!--<property name="enableSubPackages" value="true"/>-->
+            <!--<property name="immutable" value="false"/>-->
+            <!--<property name="trimStrings" value="true"/>-->
+        <!--</javaModelGenerator>-->
+        <!--<sqlMapGenerator targetPackage="mapper" targetProject="com/xderhuo">-->
+            <!--&lt;!&ndash; 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false &ndash;&gt;-->
+            <!--<property name="enableSubPackages" value="true"/>-->
+        <!--</sqlMapGenerator>-->
+        <!--<javaClientGenerator targetPackage="mapper" type="ANNOTATEDMAPPER" targetProject="com/xderhuo">-->
+            <!--<property name="enableSubPackages" value="true"/>-->
+        <!--</javaClientGenerator>-->
+        <!--<table tableName="school"/>-->
+        <!--<table tableName="student"/>-->
+        <!--<table tableName="grade" />-->
+    <!--</context>-->
+<!--</generatorConfiguration>-->
+
