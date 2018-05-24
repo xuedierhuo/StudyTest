@@ -41,7 +41,7 @@
 			<li><a href="${pageContext.request.contextPath}/jsp/cart.jsp">购物车</a></li>
 			
 			<c:if test="${not empty sessionScope.loginUser}">
-				<li><a href="${pageContext.request.contextPath}/jsp/order_list.jsp">我的订单</a></li>
+				<li><a href="${pageContext.request.contextPath}/OrderServlet?method=findByUid">我的订单</a></li>
 				
 				你好，${loginUser.name}
 				<li><a href="${pageContext.request.contextPath}/UserServlet?method=logout">注销</a></li>
