@@ -1,10 +1,7 @@
 package com.xderhuo.dao;
 
 import com.xderhuo.domain.TblUser;
-import org.apache.ibatis.annotations.One;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
@@ -14,7 +11,7 @@ import java.util.List;
  */
 public interface TblUserMapper extends Mapper<TblUser> {
 
-    @Select("select * from tbl_user")
+    @Select("select * from tbl_user where user_name like #{name}")
     @Results({
             @Result(property = "userId" , column = "user_id"),
             @Result(property = "userName" , column = "user_name"),
@@ -25,5 +22,5 @@ public interface TblUserMapper extends Mapper<TblUser> {
             @Result(property = "password" , column = "password"),
             @Result(property = "dept" ,  one = @One(select = "com.xderhuo.dao.DeptMapper.finDeptWithId"), column = "deptno")
     })
-    List<TblUser> findAll();
+    List<TblUser> findAll(@Param("name")String s);
 }

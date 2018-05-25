@@ -20,7 +20,7 @@ public class TblUserController extends BaseServlet {
 
     public void findAll() throws IOException {
         UserQuery userQuery = toBean(UserQuery.class);
-        PageInfo<TblUser> userInfo = userService.findAll(userQuery.getPage(), userQuery.getRows());
+        PageInfo<TblUser> userInfo = userService.findAll(userQuery.getPage(), userQuery.getRows() , userQuery.getName());
 
         DatagridBean<TblUser> datagridBean = new DatagridBean<>();
         datagridBean.setRows(userInfo.getList());

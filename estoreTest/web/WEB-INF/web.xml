@@ -81,4 +81,12 @@
     <servlet-name>OrderServlet</servlet-name>
     <url-pattern>/OrderServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminProductServlet</servlet-name>
+    <servlet-class>com.xderhuo.web.admin.AdminProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminProductServlet</servlet-name>
+    <url-pattern>/AdminProductServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

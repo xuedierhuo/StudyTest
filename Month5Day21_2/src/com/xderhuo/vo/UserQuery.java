@@ -9,6 +9,18 @@ public class UserQuery {
      * 每页个数
      */
     private Integer rows;
+    /**
+     * 用户姓名
+     */
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Integer getPage() {
         return page;

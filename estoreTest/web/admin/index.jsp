@@ -63,8 +63,8 @@
 	        <a id="btn" href="javascript:void(0)" class="easyui-linkbutton" onclick="addTabs(this,'${pageContext.request.contextPath}/admin/category/add.jsp')" data-options="iconCls:'icon-search',plain:true" style="width:100%;text-align:left">添加分类</a> 
 	        <a id="btn" href="javascript:void(0)" class="easyui-linkbutton" onclick="addTabs(this,'${pageContext.request.contextPath}/admin/category/list.jsp')"  data-options="iconCls:'icon-search',plain:true "style="width:100%;text-align:left">分类列表</a> 
 	    </div> 
-	     <div title="商品管理" data-options="iconCls:'icon-large-smartart'">   
-	        content22222   
+	     <div title="商品管理" data-options="iconCls:'icon-large-smartart'" style="overflow:auto;padding:10px;">
+			 <a id="btn" href="javascript:void(0)" class="easyui-linkbutton" onclick="addTabs(this,'${pageContext.request.contextPath}/admin/product/list.jsp')" data-options="iconCls:'icon-search',plain:true" style="width:100%;text-align:left">查看商品</a>
 	    </div>     
 	    <div title="用户管理" data-options="iconCls:'icon-large-smartart'" style="padding:10px;">   
 	        content3333   

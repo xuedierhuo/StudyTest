@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <HTML>
 	<HEAD>
@@ -10,11 +11,78 @@
 				window.location.href = "${pageContext.request.contextPath}/admin/product/add.jsp";
 			}
 		</script>
+
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/easyui/icon.css">
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/easyui/default/easyui.css">
+
+		<!-- js2个，jQuery、easyui -->
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.12.4.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/easyui-lang-zh_CN.js"></script>
+		
+		<script>
+			function addProduct(){
+			    window.location.href = "${pageContext.request.contextPath}/admin/product/add.jsp";
+			}
+
+			function editproduct(str){
+				alert(str);
+			}
+			$(function () {
+			    //工具条
+				var toolbarArr = [{
+				    iconCls : 'icon-add',
+					text:"添加商品",
+					// click :
+				},"-",{
+
+				}];
+
+				var columnArr = [[
+					{field:'pimage',title:'商品照片',width:100,
+						formatter : function (value, row, index) {
+					    	// return "<img />"
+							return "<img src=${pageContext.request.contextPath}/"+value+" style=\"height: 40px\">"
+                        }},
+                    {field:'pname',title:'商品名称',width:100},
+                    {field:'marketPrice',title:'商品价格',width:100},
+                    {field:'isHot',title:'是否热门',width:100,
+                        formatter : function (value , row, index) {
+                        	if (value == 0){
+                                return "否";
+                            }else {
+                        	    return "是";
+							}
+                        }
+					},
+                    {field:'opt',title:'操作',width:100,
+                        formatter : function (value ,row, index) {
+                        	return "<a href='javascript:void(0)' onclick=\"editproduct('"+row.pid+"')\" >修改</a>" +
+								" <a href='javascript:void(0)' >下架</a>";
+                        }
+					},
+				]];
+
+				var options = {
+				    "url" : "${pageContext.request.contextPath}/AdminProductServlet",
+					"columns" : columnArr,
+					"queryParams" : {
+				        "method" : "findAll"
+                    },
+					"pagination" : true,
+					"rownumbers" : true,
+					"pageSize" : 5,
+					"pageList" : [5,10,15],
+					"toolbar" : toolbarArr
+				};
+				$("#productList").datagrid( options );
+            })
+		</script>
 	</HEAD>
 	<body>
 		<br>
 		<form id="Form1" name="Form1" action="${pageContext.request.contextPath}/user/list.jsp" method="post">
-			<table cellSpacing="1" cellPadding="0" width="100%" align="center" bgColor="#f5fafe" border="0">
+			<table cellSpacing="1" cellPadding="0" width="100%" align="center" bgColor="#f5fafe" border="0" >
 				<TBODY>
 					<tr>
 						<td class="ta_01" align="center" bgColor="#afd1f3">
@@ -125,6 +193,9 @@
 					</tr>
 				</TBODY>
 			</table>
+
+			<table id="productList"></table>
+
 		</form>
 	</body>
 </HTML>

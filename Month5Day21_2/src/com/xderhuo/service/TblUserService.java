@@ -13,5 +13,5 @@ import java.util.List;
  */
 public interface TblUserService {
 
-    PageInfo<TblUser> findAll(Integer pageNum, Integer pageSize);
+    PageInfo<TblUser> findAll(Integer pageNum, Integer pageSize, String name);
 }

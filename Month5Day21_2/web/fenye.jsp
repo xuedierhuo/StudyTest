@@ -23,12 +23,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<script type="text/javascript">
 		$(function () {
-			function showUsers(pageNum , pageSize) {
+			function showUsers(pageNum , pageSize, name) {
 			    var url = "/UserServlet";
 			    var params = {
 			        "method" : "findAll",
 					"page" : pageNum,
-					"rows" : pageSize
+					"rows" : pageSize,
+					"name" : name
 				};
 				$.post(url,params,function ( data ) {
 				    // data = eval(data);
@@ -99,66 +100,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             });
 
 
-            
+            showUsers(1,5,"");
+
             $("#seachSub").click(function () {
-                var url = "/UserServlet";
-                var params = {
-                    "method" : "findAll",
-                    "page" : pageNum,
-                    "rows" : pageSize
-                };
-                $.post(url,params,function ( data ) {
-                    // data = eval(data);
-                    var rows = data.rows;
-                    var total = Math.ceil(data.total/pageSize);
-
-                    $("#pages").html(total);
-                    $("#pageNum").val(pageNum);
-                    $("#allTh").html("");
-
-                    $("#nextpage").show();
-                    if (total == pageNum){
-                        $("#nextpage").hide();
-                    };
-                    $("#uppage").show();
-                    if (pageNum == 1){
-                        $("#uppage").hide();
-                    }
-
-                    for (var i = 0; i < rows.length; i++) {
-                        var newTr = $("<tr></tr>");
-
-                        var count = $("<td></td>").html(i+1);
-                        newTr.append(count);
-
-                        var id = $("<td></td>").html(rows[i].userId);
-                        newTr.append(id);
-
-                        var userName = $("<td></td>").html(rows[i].userName);
-                        newTr.append(userName);
-
-                        var userGender = $("<td></td>").html(rows[i].userGender);
-                        newTr.append(userGender);
-
-                        var userRegisterTime = $("<td></td>").html(rows[i].userRegisterTime.year+1900+"-"+rows[i].userRegisterTime.month+"-"+rows[i].userRegisterTime.day);
-                        newTr.append(userRegisterTime);
-
-                        var userLastLoginTime = $("<td></td>").html(rows[i].userLastLoginTime.year+1900+"-"+rows[i].userLastLoginTime.month+"-"+rows[i].userLastLoginTime.day);
-                        newTr.append(userLastLoginTime);
-
-                        var deptno = $("<td></td>").html(rows[i].dept.dname);
-                        newTr.append(deptno);
-
-
-                        $("#allTh").append(newTr);
-                    }
-
-
-                },"json");
-            });
-
-
-            showUsers(1,5);
+				alert($(this).val());
+				showUsers(1,5,$(this).val())
+            })
         });
 	</script>
   </head>

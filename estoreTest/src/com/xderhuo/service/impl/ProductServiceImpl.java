@@ -75,4 +75,12 @@ public class ProductServiceImpl implements ProductService {
 		return productMapper.selectByPrimaryKey(pid);
 	}
 
+	@Override
+	public PageInfo<Product> findAll(Integer page, Integer rows) {
+		ProductMapper productMapper = JdbcUtils.getMapper(ProductMapper.class);
+		PageHelper.startPage(page,rows);
+		List<Product> products = productMapper.selectAll();
+		return new PageInfo<>(products);
+	}
+
 }

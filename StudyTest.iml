@@ -6,7 +6,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Month5Day14_2" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Utils" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/estoreTest/config" type="java-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

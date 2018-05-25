@@ -35,4 +35,5 @@ public interface ProductService {
 	 */
 	Product selectByPrimaryKey(String pid);
 
+    PageInfo<Product> findAll(Integer page, Integer rows);
 }

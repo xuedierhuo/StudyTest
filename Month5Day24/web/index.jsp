@@ -10,15 +10,5 @@
   <head>
     <title>$Title$</title>
   </head>
-  <body>
-    <select id="school" name="school">
-      <option>----请选择-----</option>
-    </select>
-    <select id="class" name="class">
-      <option>----请选择-----</option>
-    </select>
-    <select id="student" name="student">
-      <option>----请选择-----</option>
-    </select>
-  </body>
+  <jsp:forward page="${pageContext.request.contextPath}/SchoolServlet?method=findAll"/>
 </html>
