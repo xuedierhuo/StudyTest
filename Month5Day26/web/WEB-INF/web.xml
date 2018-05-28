@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>TypeTemplateServlet</servlet-name>
+        <servlet-class>com.hdp.one.mall.web.servlet.TypeTemplateServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TypeTemplateServlet</servlet-name>
+        <url-pattern>/TypeTemplate</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BusinessServlet</servlet-name>
+        <servlet-class>com.hdp.one.mall.web.servlet.BusinessServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BusinessServlet</servlet-name>
+        <url-pattern>/BusinessServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>BrandServlet</servlet-name>
+        <servlet-class>com.hdp.one.mall.web.servlet.BrandServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>BrandServlet</servlet-name>
+        <url-pattern>/BrandServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AdvertiseServlet</servlet-name>
+        <servlet-class>com.hdp.one.mall.web.servlet.AdvertiseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdvertiseServlet</servlet-name>
+        <url-pattern>/AdvertiseServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SpecificationServlet</servlet-name>
+        <servlet-class>com.hdp.one.mall.web.servlet.SpecificationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SpecificationServlet</servlet-name>
+        <url-pattern>/SpecificationServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ProductServlet</servlet-name>
+        <servlet-class>com.hdp.one.mall.web.servlet.ProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductServlet</servlet-name>
+        <url-pattern>/ProductServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>AdvertiseManageServlet</servlet-name>
+        <servlet-class>com.hdp.one.mall.web.servlet.AdvertiseManageServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdvertiseManageServlet</servlet-name>
+        <url-pattern>/AdvertiseManageServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
